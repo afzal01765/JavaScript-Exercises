@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>setTimeout and clearTimeout Example</title>
+</head>
+<body>
+
+  <h1>The Window Object</h1>
+  <h2>The setTimeout() and clearTimeout() Methods</h2>
+
+  <p>Click "Stop" to prevent <code>myGreeting()</code> from executing. (You have 5 seconds)</p>
+  
+  <button onclick="myStopFunction()">Stop!</button>
+  <h2 id="demo"></h2>
+
+  <script>
+    let myTimeout = setTimeout(myGreeting, 5000);
+
+    function myGreeting() {
+      document.getElementById("demo").textContent = "Happy Birthday!";
+    }
+
+    function myStopFunction() {
+      clearTimeout(myTimeout);
+      document.getElementById("demo").textContent = "Greeting canceled!";
+    }
+  </script>
+
+</body>
+</html>

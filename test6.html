@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Break Reminder Timer</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #message {
+      color: green;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>⏰ Break Reminder Timer</h1>
+
+  <p id="countdown">Time Left: 10 seconds</p>
+  <button id="startBtn">Start Countdown</button>
+  <div id="message"></div>
+
+
+  <script>
+    let countdownElement = document.getElementById("countdown");
+    let messageElement = document.getElementById("message");
+    let startBtn = document.getElementById("startBtn");
+
+    let countdownTime = 10; // in seconds
+    let intervalId;
+    let timeoutId;
+
+    function startCountdown() {
+        
+      let timeLeft = countdownTime;
+      countdownElement.innerText = `Time Left: ${timeLeft} seconds`;
+      messageElement.innerText = "";
+
+      // Clear any previous intervals or timeouts
+      clearInterval(intervalId);
+      clearTimeout(timeoutId);
+
+      intervalId = setInterval(() => {
+        timeLeft--;
+        countdownElement.innerText = `Time Left: ${timeLeft} seconds`;
+
+        if (timeLeft <= 0) {
+          clearInterval(intervalId);
+          showReminder();
+        }
+      }, 1000);
+    }
+
+    function showReminder() {
+      timeoutId = setTimeout(() => {
+        messageElement.innerText = "Take a short break! 🧘‍♂️";
+
+        // Auto restart countdown every 10 seconds
+        startCountdown();
+      }, 500);
+    }
+
+    startBtn.addEventListener("click", startCountdown);
+  </script>
+</body>
+</html>
