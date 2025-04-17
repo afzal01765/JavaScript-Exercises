@@ -1,36 +1,38 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-	<title>DOM querySelectorAll() Method</title>
-	<style>
-		#geek {
-			border: 1px solid black;
-			margin: 5px;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #conteainer {
+            background-color: white;
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
 </head>
+<body>
 
-<body style="text-align: center;">
-	<h1 style="color: green;">GeeksforGeeks</h1>
-	<h2>querySelectorAll() Method</h2>
-	<div id="geek">
-		<p>This is paragraph 1.</p>
-		<p>This is paragraph 2.</p>
-	</div>
-	<button onclick="myFunction()">Try it</button>
+    <div id="conteainer">
+        <p>This is my item 1</p>
+        <p>This is my item 2</p>
+        <p>This is my item 3</p>
+        <p>This is my item 4</p>
+    </div>
 
-	<script>
-		function myFunction() {
-			let x = document.getElementById("geek")
-					.querySelectorAll("p");
-			let i;
-			for (i = 0; i < x.length; i++) {
-				x[i].style.backgroundColor = "green";
-				x[i].style.color = "white";
-			}
-		}
-	</script>
+    <button type="button" onclick="myFunction()">Try it</button>
+
+    <script>
+        let value = document.getElementById('conteainer').querySelectorAll("p");
+
+        function myFunction() {
+            for (let i = 0; i < value.length; i++) {
+                value[i].style.backgroundColor = "green";
+                value[i].style.color = "white";
+            }
+        }
+    </script>
+
 </body>
-
 </html>

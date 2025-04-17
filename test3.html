@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function createparagraph() {
+            let x = document.createElement("p");
+            let t =
+                document.createTextNode("Paragraph is created.");
+            x.appendChild(t);
+            document.getElementById("divid").appendChild(x);
+        }
+    </script>
+</head>
+
+<body>
+    <div id="divid"> A div element</div>
+    <button onclick="createparagraph()">CreateParagraph</button>
+</body>
+
+</html>
